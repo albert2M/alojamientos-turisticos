@@ -3,11 +3,11 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 const options = {
-  target: 'http://127.0.0.1:8080', 
-  cookieDomainRewrite: 'dev-apiprueba.com', 
+  target: 'http://127.0.0.1:8080',
+  cookieDomainRewrite: 'dev-alojamientos-turisticos.com',
   changeOrigin: true,
   logLevel: 'debug',
-  onProxyReq: function(proxyReq, req, res) {
+  onProxyReq: function (proxyReq, req, res) {
     if (!req.headers['accept-language']) {
       proxyReq.setHeader('Accept-Language', 'es-ES,es;q=0.9,en;q=0.8');
     } else {
